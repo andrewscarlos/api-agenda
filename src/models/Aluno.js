@@ -1,15 +1,15 @@
 import Sequelize, { Model } from 'sequelize';
 
-export defult class Aluno extends Model{
+export default class Aluno extends Model{
     static init(sequelize){
         super.init({
-            nome: sequelize.STRING,
-            sobrenome: sequelize.STRING,
-            email: sequelize.STRING,
-            idade: sequelize.INTEGER,
-            peso: sequelize.FLOAT,
-            altura: sequelize.FLOAT,
-        },{sequelize});
+            nome: Sequelize.STRING,
+            sobrenome: Sequelize.STRING,
+            email: Sequelize.STRING,
+            idade: Sequelize.INTEGER,
+            peso: Sequelize.FLOAT,
+            altura: Sequelize.FLOAT,
+        },{sequelize})
         return this;
     }
 }
