@@ -41,8 +41,14 @@ export default class Users extends Model{
         },{sequelize})
 
         this.addHook('beforeSave',  async user =>{
-            user.password_hash = await bcryptjs.hash(user.password, 8 )
+            if(user.password){
+                user.password_hash = await bcryptjs.hash(user.password, 8 )
+            }
         });
+
         return this;
+    }
+    passwordIsValid(password){
+        return bcryptjs.compare(password, this.password_hash)
     }
 }
